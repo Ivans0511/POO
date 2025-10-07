@@ -14,7 +14,7 @@ import java.util.Calendar;
 public class ETemporal extends Empleado{
     private Calendar fechaAlta;
     private Calendar fechaBaja;
-    private static final double SUELDO_MENSUAL_FIJO = 200000;
+    private static final double SUELDO_MENSUAL_FIJO = 2000000;
 
     public ETemporal(Calendar fechaAlta, Calendar fechaBaja, String nombre, String fecha, String departamento){
         super(nombre, fecha, departamento);
@@ -53,8 +53,8 @@ public class ETemporal extends Empleado{
         SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
 
         return super.toString() 
-            + "\nFecha alta: " + formato.format(fechaAlta.getTime())
-            + "\nFecha baja: " + formato.format(fechaBaja.getTime())
+            + "\nFECHA ALTA: " + formato.format(fechaAlta.getTime())
+            + "\nFECHA BAJA: " + formato.format(fechaBaja.getTime())
             + "\nSALARIO: " + calcularSueldo();
     }
           

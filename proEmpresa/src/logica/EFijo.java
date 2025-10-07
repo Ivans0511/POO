@@ -13,7 +13,7 @@ import java.util.Calendar;
  */
 public class EFijo extends Empleado {
     private Calendar fechaInicio;
-    private static final double SALARIO_BASE = 250000;
+    private static final double SALARIO_BASE = 2000000;
     
     public EFijo() {
     }
@@ -30,25 +30,28 @@ public class EFijo extends Empleado {
         this.fechaInicio = fechaInicio;
     }
     
-    @Override
-    public double calcularSueldo(){
+    private int calcularFecha(Calendar fechaInicio){
         // Calcular años de servicio
         Calendar fechaActual = Calendar.getInstance();
-        int años = fechaActual.get(Calendar.YEAR) - fechaInicio.get(Calendar.YEAR);
+        final int AÑOS = fechaActual.get(Calendar.YEAR) - fechaInicio.get(Calendar.YEAR);
+        return AÑOS;
+    }
+    
+    @Override
+    public double calcularSueldo(){
+        int AÑOS = calcularFecha(fechaInicio);
+        final double COMPLEMENTO_ANUAL = 50000;
 
-        // Definir el complemento anual (necesitas determinarlo según tu ejercicio)
-        double COMPLEMENTO_ANUAL = 50000;
-
-        return SALARIO_BASE + (COMPLEMENTO_ANUAL * años);
+        return SALARIO_BASE + (COMPLEMENTO_ANUAL * AÑOS);
     }
           
     @Override
     public String toString(){
-        SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
         
-        return  super.toString() + "\nFecha inicio "
+        return  super.toString() + "\nFECHA INICIO: "
                 + formato.format(fechaInicio.getTime())
-                + "\nSALARIO " + calcularSueldo();
+                + "\nSALARIO: " + calcularSueldo();
     }
     
 }

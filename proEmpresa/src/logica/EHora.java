@@ -34,8 +34,8 @@ public class EHora extends Empleado{
       
     @Override
     public String toString(){
-        return super.toString() + "\nPrecio por hora "
-                + PRECIO_HORA + "\nNumerdo de horas trabajadas " + numHorasTrabajadas
+        return super.toString() + "\nPRECIO HORA: "
+                + PRECIO_HORA + "\nNUMERO DE HORAS TRABAJADAS " + numHorasTrabajadas
                 + "\nSALARIO "+ calcularSueldo();
     }
 }

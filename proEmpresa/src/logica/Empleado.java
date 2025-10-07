@@ -44,7 +44,7 @@ public abstract class Empleado {
         this.departamento = departamento;
     }
     
-    protected abstract double calcularSueldo();
+    public abstract double calcularSueldo();
     
     @Override
     public String toString(){

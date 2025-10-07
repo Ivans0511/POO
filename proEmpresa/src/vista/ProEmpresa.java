@@ -18,6 +18,7 @@ import logica.*;
 public class ProEmpresa {
 
     private static ArrayList<Empleado> listaEmpleados = new ArrayList<>();
+    private static ArrayList<Empleado> listaEmpleadosDpt = new ArrayList<>();
     
     public static void menu(){       
         int opcion;
@@ -27,7 +28,8 @@ public class ProEmpresa {
                     + "\n2. Agregar empleado fijo"
                     + "\n3. Agregar empleado por hora"
                     + "\n4. Ver empleados"
-                    + "\n5. Salir");
+                    + "\n5. Empleado por departamento"
+                    + "\n6. Salir");
 
             if (input == null) break; // Cancelar
 
@@ -48,6 +50,9 @@ public class ProEmpresa {
                     mostrarEmpleados();
                     break;
                 case 5:
+                    mostrarEmpleadoPorDpt();
+                    break;
+                case 6:
                     JOptionPane.showMessageDialog(null, "¡Hasta pronto!");
                     break;
                 default:  
@@ -117,11 +122,27 @@ public class ProEmpresa {
         if (listaEmpleados.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay empleados registrados.");
         } else {
-            StringBuilder sb = new StringBuilder();
+            //StringBuilder sb = new StringBuilder();
             for (Empleado e : listaEmpleados) {
-                sb.append(e.toString()).append("\n---------------------\n");
+                JOptionPane.showMessageDialog(null, "Empleado :\n"
+                        + "Nombre: " + e.getNombre() + "\n"
+                        + "Salario: " + e.calcularSueldo());
+                //sb.append(e.toString()).append("\n---------------------\n");
             }
-        JOptionPane.showMessageDialog(null, sb.toString());
+        //JOptionPane.showMessageDialog(null, sb.toString());
+        }
+    }
+    
+    public static void mostrarEmpleadoPorDpt(){
+        if (listaEmpleados.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay empleados registrados.");
+        } else {
+            String dpt = JOptionPane.showInputDialog(null, "Ingrese el dpt");
+            for (Empleado e : listaEmpleados) {
+                if(dpt.equalsIgnoreCase(e.getDepartamento())){
+                    JOptionPane.showMessageDialog(null, "Nombre "+e.getNombre() + "\nSalario " + e.calcularSueldo());
+                }
+            }   
         }
     }
     
