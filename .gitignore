@@ -11,10 +11,12 @@
 /proVeterinaria_IVAN_SIERRA_ARRIETA_0222420035/nbproject/private/
 /nbproject/
 *.xml
-
+*.mf
+*/nbproject/
 /proVehiculo/nbproject/private/
 /proIGU/build/
 /proVeterinaria_IVAN_SIERRA_ARRIETA_0222420035/build/
 /proGestionVehiculo/nbproject/private/
 /proGestionVehiculo/build/
 /proGestorDocumentos/nbproject/private/
+/proFraccionario/build/
