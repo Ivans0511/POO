@@ -4,40 +4,15 @@ import logica.*;
 import javax.swing.*;
 
 public class Main {
-    static Cliente cliente = new Cliente("Ivan", "IV@uni.edu.co");
-    static Producto producto1 = new Producto("Arroz", 3000, 1);
-    static Producto producto2 = new Producto("Pollo", 4000, 2);
-    static Pedido pedido = new Pedido("28-09-2001", cliente);
-
-
-    public static void calcularTotal() {
-        JOptionPane.showMessageDialog(null, "El total del pedido es: " + pedido.calcularTotal());
+    public static void main(String[] args) {
+        menu();
     }
-
-    public static void agregarProducto() {
-        int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el codigo del producto: \n" +
-                "1. Arroz \n" +
-                "2. Pollo"));
-        switch (codigo) {
-            case 1:
-                pedido.agregarProductos(producto1);
-                JOptionPane.showMessageDialog(null, "Producto agregado: \n" + producto1);
-                break;
-            case 2:
-                pedido.agregarProductos(producto2);
-                JOptionPane.showMessageDialog(null, "Producto agregado: \n" + producto2);
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "Codigo no valido");
-                break;
-        }
-
-    }
-
 
     public static void menu() {
-        int op;
+        Cliente cliente = new Cliente("Ivan", "IV@uni.edu.co");
+        Pedido pedido = new Pedido("28-09-2001", cliente);
 
+        int op;
         do {
             op = Integer.parseInt(JOptionPane.showInputDialog(null,
                     "Seleccione una opcion: \n" +
@@ -48,10 +23,10 @@ public class Main {
 
             switch (op) {
                 case 1:
-                    agregarProducto();
+                    agregarProducto(pedido);
                     break;
                 case 2:
-                    calcularTotal();
+                    calcularTotal(pedido);
                     break;
                 case 3:
                     JOptionPane.showMessageDialog(null, pedido);
@@ -63,12 +38,31 @@ public class Main {
                     JOptionPane.showMessageDialog(null, "Opcion no valida");
                     break;
             }
-        }while(op!=4);
+        } while (op != 4);
     }
 
+    public static void agregarProducto(Pedido pedido) {
+        int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el codigo del producto: \n" +
+                "1. Arroz \n" +
+                "2. Pollo"));
 
-    public static void main(String[] args) {
-        menu();
+        Producto producto = null;
+        switch (codigo) {
+            case 1:
+                producto = new Producto("Arroz", 3000, 1);
+                break;
+            case 2:
+                producto = new Producto("Pollo", 4000, 2);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Codigo no valido");
+                return;
+        }
+        pedido.agregarProductos(producto);
+        JOptionPane.showMessageDialog(null, "Producto agregado: \n" + producto);
     }
 
+    public static void calcularTotal(Pedido pedido) {
+        JOptionPane.showMessageDialog(null, "El total del pedido es: " + pedido.calcularTotal());
+    }
 }
