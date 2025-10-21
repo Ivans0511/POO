@@ -30,11 +30,15 @@ public class EFijo extends Empleado {
         this.fechaInicio = fechaInicio;
     }
     
-    private int calcularFecha(Calendar fechaInicio){
-        // Calcular años de servicio
+    private int calcularFecha(Calendar fechaInicio) {
         Calendar fechaActual = Calendar.getInstance();
-        final int AÑOS = fechaActual.get(Calendar.YEAR) - fechaInicio.get(Calendar.YEAR);
-        return AÑOS;
+        int anios = fechaActual.get(Calendar.YEAR) - fechaInicio.get(Calendar.YEAR);
+        if (fechaInicio.get(Calendar.MONTH) > fechaActual.get(Calendar.MONTH) ||
+                (fechaInicio.get(Calendar.MONTH) == fechaActual.get(Calendar.MONTH) &&
+                        fechaInicio.get(Calendar.DAY_OF_MONTH) > fechaActual.get(Calendar.DAY_OF_MONTH))) {
+            anios--;
+        }
+        return anios;
     }
     
     @Override

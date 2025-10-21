@@ -34,8 +34,8 @@ public class ProEmpresa {
             if (input == null) break; // Cancelar
 
             opcion = Integer.parseInt(input);
-            
-            
+
+
             switch (opcion) {
                 case 1:
                     agregarEmpleadoTemporal();
@@ -55,27 +55,27 @@ public class ProEmpresa {
                 case 6:
                     JOptionPane.showMessageDialog(null, "¡Hasta pronto!");
                     break;
-                default:  
+                default:
                     JOptionPane.showMessageDialog(null, "Opción inválida.");
             }
-        }while(opcion!=0);
-    }    
-    
+        } while (opcion != 6);
+    }
+
     public static void agregarEmpleadoTemporal() {
         String nombre = JOptionPane.showInputDialog("Nombre:");
-        String fechaNacimiento = JOptionPane.showInputDialog("Fecha de nacimiento (YYYY-MM-DD):");
+        String fechaNacimiento = JOptionPane.showInputDialog("Fecha de nacimiento (yyyy-MM-dd):");
         String departamento = JOptionPane.showInputDialog("Departamento:");
-        String alta = JOptionPane.showInputDialog("Fecha de alta (YYYY-MM-DD):");
-        String baja = JOptionPane.showInputDialog("Fecha de baja (YYYY-MM-DD):");
+        String alta = JOptionPane.showInputDialog("Fecha de alta (yyyy-MM-dd):");
+        String baja = JOptionPane.showInputDialog("Fecha de baja (yyyy-MM-dd):");
 
-        SimpleDateFormat formato = new SimpleDateFormat("YYYY/MM/DD");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         Calendar fechaAlta = Calendar.getInstance();
         Calendar fechaBaja = Calendar.getInstance();
 
         try {
             fechaAlta.setTime(formato.parse(alta));
             fechaBaja.setTime(formato.parse(baja));
-        } catch(ParseException e) {
+        } catch (ParseException e) {
             System.err.println("ERRO! ASEGURATE DE QIUE EL FORMATO FECHA SEA CORRECTO");
             e.printStackTrace();
         }
@@ -87,16 +87,16 @@ public class ProEmpresa {
 
     public static void agregarEmpleadoFijo() {
         String nombre = JOptionPane.showInputDialog("Nombre:");
-        String fechaNacimiento = JOptionPane.showInputDialog("Fecha de nacimiento (YYYY-MM-DD):");
+        String fechaNacimiento = JOptionPane.showInputDialog("Fecha de nacimiento (yyyy-MM-dd):");
         String departamento = JOptionPane.showInputDialog("Departamento:");
-        String alta = JOptionPane.showInputDialog("Fecha de alta (YYYY-MM-DD):");
+        String alta = JOptionPane.showInputDialog("Fecha de alta (yyyy-MM-dd):");
 
-        SimpleDateFormat formato = new SimpleDateFormat("YYYY/MM/DD");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         Calendar fechaAlta = Calendar.getInstance();
 
         try {
             fechaAlta.setTime(formato.parse(alta));
-        } catch(ParseException e) {
+        } catch (ParseException e) {
             System.err.println("ERRO! ASEGURATE DE QIUE EL FORMATO FECHA SEA CORRECTO");
             e.printStackTrace();
         }
