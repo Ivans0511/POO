@@ -1,22 +1,44 @@
+# Java
+*.class
+*.log
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+# NetBeans
+**/nbproject/private/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
+
+# IntelliJ IDEA
+out/
+.idea/
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+
+# VS Code
+.vscode/
+
+# Mac OS
+.DS_Store
+
+# Custom
 *.iml
-.idea
-/out/
-/proLinea/nbproject/private/
-/proLinea/build/
-/proEmpresa/nbproject/private/
-/proEmpresa/build/
-/proIGU/nbproject/private/
-/proAnimal/nbproject/private/
-/Animal/nbproject/private/
-/proVeterinaria_IVAN_SIERRA_ARRIETA_0222420035/nbproject/private/
-/nbproject/
 *.xml
 *.mf
-*/nbproject/
-/proVehiculo/nbproject/private/
-/proIGU/build/
-/proVeterinaria_IVAN_SIERRA_ARRIETA_0222420035/build/
-/proGestionVehiculo/nbproject/private/
-/proGestionVehiculo/build/
-/proGestorDocumentos/nbproject/private/
-/proFraccionario/build/
