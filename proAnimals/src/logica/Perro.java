@@ -1,10 +1,11 @@
 package logica;
 
 import java.time.LocalDate;
+import java.util.Calendar;
 
 public class Perro extends Animal {
 
-    public Perro(String nombre, double pesoKg, LocalDate fechaNacimiento) {
+    public Perro(String nombre, double pesoKg, Calendar fechaNacimiento) {
         super(nombre, pesoKg, fechaNacimiento);
     }
 
